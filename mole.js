@@ -8,3 +8,8 @@
 //     }, 1000)
 
 // });
+
+function popUpRandomMole() {
+    const moleHEads = document.querySelectorAll(".wgs__mole-head");
+    let random = Math.floor(Math.random(0, 7));
+}
