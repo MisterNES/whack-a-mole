@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+
   //     setInterval(() => {
   //         const moleHeads = document.querySelectorAll('.wgs__mole-head');
   //         for (let moleHead of moleHeads) {
@@ -7,10 +7,15 @@ window.addEventListener("DOMContentLoaded", () => {
   //     }, 1000)
 
   function popUpRandomMole() {
-    const moleHeads = document.querySelectorAll(".wgs__mole-head");
+    const moleHeads = document.querySelectorAll(".wgs__mole-head:not(.wgs__mole-head--whacked)");
+    if (moleHeads.length === 0){
+        alert("You won!")
+        return;
+    }
     //formula: Math.random() * (max - min + 1) + min
     //min = 0 max = 7;
-    let random = Math.floor(Math.random() * 8);
+    // console.log(moleHeads)
+    let random = Math.floor(Math.random() * moleHeads.length);
     let currHead = moleHeads[random];
     currHead.classList.remove("wgs__mole-head--hidden");
     setTimeout(() => {
@@ -25,6 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
+window.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     popUpRandomMole();
   }, 0);
